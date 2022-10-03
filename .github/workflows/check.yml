@@ -1,0 +1,33 @@
+name: Python checking
+
+on: [push]
+
+env:
+  PACKAGE_DIR_NAME: sphinx_automagicdoc
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Update pip
+        run: python -m pip install --upgrade pip wheel
+      - name: Install dependencies
+        run: pip install ".[check]"
+      - name: Syntax check with black
+        run: black --check $PACKAGE_DIR_NAME
+      - name: Syntax check with isort
+        run: isort --check $PACKAGE_DIR_NAME
+      - name: Linting with pflake8
+        run: pflake8 $PACKAGE_DIR_NAME
+      - name: Linting with pylint
+        run: pylint $PACKAGE_DIR_NAME
+      - name: Type check with mypy
+        run: mypy $PACKAGE_DIR_NAME
