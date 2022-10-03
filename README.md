@@ -43,7 +43,7 @@ Welcome to the documentation!
 
 ## Example
 
-This repo builds its documentation using [sphinx-autopyproject](https://github.com/csachs/sphinx-autopyproject) as described in [`.github/workflows/doc.yml`](.github/workflows/doc.yml) using Github Actions and deploys to its [`gh-pages`](https://github.com/csachs/sphinx-automagicdoc/tree/gh-pages) branch, visible at https://csachs.github.io/sphinx-automagicdoc .
+This repo builds its documentation using [sphinx-autopyproject](https://github.com/csachs/sphinx-autopyproject) as described in [`.github/workflows/doc.yml`](.github/workflows/doc.yml) using Github Actions and deploys to [Github pages](https://csachs.github.io/sphinx-automagicdoc).
 
 
 ## See also
