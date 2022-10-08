@@ -32,7 +32,8 @@ def os_walk(*args, **kwargs):
     for path, dirs, files in os.walk.original(*args, **kwargs):
         if path == base_path:
             files += [
-                virtual_file_name.split('/')[-1] for virtual_file_name in virtual_files
+                virtual_file_name.split(os.path.sep)[-1]
+                for virtual_file_name in virtual_files
             ]
         yield path, dirs, files
 

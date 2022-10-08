@@ -1,3 +1,4 @@
+import os
 from fnmatch import fnmatch
 from functools import partial
 from importlib import import_module
@@ -12,7 +13,7 @@ MAIN_PY = '__main__.py'
 
 
 def _path_to_str(path: Path, base_path: Path) -> str:
-    path_str = str(path).replace(str(base_path.parent), '').replace('/', '.')
+    path_str = str(path).replace(str(base_path.parent), '').replace(os.path.sep, '.')
     if path_str.startswith('.'):
         path_str = path_str[1:]
     if path_str.endswith('.py'):
